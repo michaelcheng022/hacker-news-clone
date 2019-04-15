@@ -1,0 +1,40 @@
+@import '../base/settings';
+
+.header-container {
+  background: rgb(255, 103, 2);
+  padding: 5px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchbar-container {
+  margin-left: 30px;
+}
+
+.searchbar-container input {
+  border: none;
+  height: 42px;
+  padding-left: 10px;
+  width: 25vw;
+}
+
+.subtitle-container {
+  color: $off-white;
+  margin-left: 20px;
+}
+
+.title-container {
+  border: $off-white 2px solid;
+  padding: 5px;
+  margin: 10px;
+}
+
+.title-container h1 {
+  margin: 0 auto;
+  color: $off-white;
+  font-weight: normal;
+}

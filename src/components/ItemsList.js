@@ -1,0 +1,37 @@
+import React, { Component } from 'react'
+import Item from './Item'
+
+export default class ItemsList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hits: []
+    };
+  }
+
+  getData = (url) => {
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          hits: [...this.state.hits, ...data.hits]
+        });
+      });
+  }
+  componentDidMount() {
+    this.getData('https://hn.algolia.com/api/v1/search?query=&page=0&tags=story');
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.hits.length > 0 ? this.state.hits.map((hit) => {
+          return <Item data={hit} />;
+        }) : null}
+      </div>
+    )
+  }
+}

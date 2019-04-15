@@ -1,0 +1,52 @@
+@import '../base/settings';
+
+.item-container {
+  padding: 3px 15px 10px;
+  background: $theme-light;
+  border-bottom: 1px #eee solid;
+  overflow: hidden;
+}
+
+.item {
+  display: block;
+  width: 100%;
+}
+
+.item h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+.item ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.item ul li {
+  padding-left: 0;
+  padding-right: 5px;
+  font-size: 10px;
+  text-align: center;
+  margin: 0 0 0 5px;
+  border-right: dimgray solid 1px;
+}
+
+.item a {
+  text-decoration: none;
+  color: dimgray !important;
+}
+
+.item a:hover {
+  text-decoration: underline;
+}
+
+.item ul li:first-child {
+  margin-left: 0;
+}
+.item ul li:last-child {
+  border: none;
+}
+
