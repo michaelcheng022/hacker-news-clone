@@ -1,7 +1,14 @@
 @import '../base/settings';
 
 .header-container {
-  background: rgb(255, 103, 2);
+  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.header {
+  background: $theme-orange;
   padding: 5px;
 }
 
@@ -19,12 +26,47 @@
   border: none;
   height: 42px;
   padding-left: 10px;
-  width: 25vw;
+  width: 40vw;
+}
+
+.sort-by {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.sort-by span{
+  color: dimgray;
+  font-size: 10pt;
+  padding: 4px;
+}
+
+.sort-button {
+  border: none;
+  border-radius: 10px;
+  color: $theme-orange;
+  cursor: pointer;
+  font-size: 8.5pt;
+  margin: 2px;
+  padding: 4px 10px 4px 10px;
 }
 
 .subtitle-container {
   color: $off-white;
   margin-left: 20px;
+}
+
+.subtitle-container a {
+  color: white;
+  text-decoration: none;
+}
+
+.subtitle-container a:hover {
+  color: rgb(218, 33, 0);
+  text-decoration: none;
 }
 
 .title-container {
@@ -37,4 +79,20 @@
   margin: 0 auto;
   color: $off-white;
   font-weight: normal;
+}
+
+@media (max-width: 812px) {
+  .subtitle-container {
+    font-size: 10pt;
+  }
+}
+
+@media (max-width: 575px) {
+  .subtitle-container {
+    display: none;
+  }
+
+  .searchbar-container input {
+    width: 50vw;
+  }
 }

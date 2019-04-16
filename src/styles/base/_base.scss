@@ -1,7 +1,19 @@
+@import './settings';
+
+
 .app-container {
   margin: 0 10% 0 10%;
 }
 
+@media (max-width: #{$screen-xl-min}) {
+  .app-container {
+    margin: 0;
+  }
+}
+
+
+
 body {
   font-family: Verdana, Geneva, sans-serif !important;
+  margin: 0;
 }

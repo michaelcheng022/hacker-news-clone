@@ -16,6 +16,7 @@ export default class ItemsList extends Component {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         this.setState({
           hits: [...this.state.hits, ...data.hits]
         });
@@ -31,6 +32,9 @@ export default class ItemsList extends Component {
         {this.state.hits.length > 0 ? this.state.hits.map((hit) => {
           return <Item data={hit} />;
         }) : null}
+        <div className="page-number-container">
+          <div>1</div>
+        </div>
       </div>
     )
   }

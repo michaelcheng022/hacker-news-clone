@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
-import NewsFeed from '../NewsFeed';
+import ItemsList from '../ItemsList';
 import '../../styles/styles.scss'
 
 class HackerNewsApp extends Component {
@@ -8,7 +8,7 @@ class HackerNewsApp extends Component {
     return (
       <div className="app-container">
         <Header />
-        <NewsFeed />
+        <ItemsList />
       </div>
     );
   }
