@@ -30,7 +30,7 @@ export default class ItemsList extends Component {
     return (
       <div>
         {this.state.hits.length > 0 ? this.state.hits.map((hit) => {
-          return <Item data={hit} />;
+          return <Item key={hit.objectID} data={hit} />;
         }) : null}
         <div className="page-number-container">
           <div>1</div>

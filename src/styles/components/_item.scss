@@ -41,7 +41,7 @@
   font-size: 10px;
   text-align: center;
   margin: 0 0 0 5px;
-  border-right: dimgray solid 1px;
+  border-right: rgb(180, 180, 180) solid 1px;
 }
 
 .item-details a {
@@ -60,6 +60,15 @@
   border: none;
 }
 
+@media (max-width: 450px) {
+  .item ul li:nth-child(4) {
+    border: none;
+  }
+  .item ul li:last-child {
+    display: none;
+  }
+}
+
 @media (max-width: 375px) {
   .item ul li {
     font-size: 7px;
@@ -68,5 +77,6 @@
   .item-title {
     font-size: 11px;
   }
+
 }
 

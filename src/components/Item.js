@@ -1,11 +1,12 @@
 import React from 'react'
+import moment, {fromNow} from 'moment';
 
 const regEx = /:\/\/(.[^/]+)/; //regular expression for parsing urls
-
-const getDate = (dateCreated) => {
-  const today = Date.now();
-  console.log((new Date(dateCreated)));
+const getDate = (createdAt) => {
+  let date = new Date(createdAt);
+  return moment(date).fromNow();
 }
+
 const Item = (props) => {
   return (
     <div className="item-container">
