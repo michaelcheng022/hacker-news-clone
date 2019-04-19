@@ -1,7 +1,12 @@
-export const FETCH_DATA_START = 'FETCH_DATA_START';
-export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR'
-export const RECIEVE_DATA = 'RECIEVE_DATA';
+const FETCH_DATA_START = 'FETCH_DATA_START';
+const FETCH_FROM = 'FETCH_FROM'
+const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR'
+const RECIEVE_DATA = 'RECIEVE_DATA';
 
+export const fetchFrom = (url) => ({
+  type: FETCH_FROM,
+  url
+})
 export const fetchDataStart = () => ({
   type: FETCH_DATA_START 
 });
@@ -17,12 +22,16 @@ export const recieveData = (data) => ({
 });
 
 // fn calls API and builds state
-export const fetchData = () => {
+export const fetchData = (url) => {
   return (dispatch) => {
     dispatch(fetchDataStart());
-    return fetch('https://hn.algolia.com/api/v1/search?query=&page=0&tags=story')
+    dispatch(fetchFrom(url));
+    return fetch(url)
       .then((response) => response.json())
-      .then((data) => dispatch(recieveData(data)))
+      .then((data) => {
+        console.log(data);
+        return dispatch(recieveData(data))
+      })
       .catch((err) => {
         dispatch(fetchDataError(err))
       });

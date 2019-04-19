@@ -1,6 +1,7 @@
 
 
 const getInitialState = () => ({
+  url: 'https://hn.algolia.com/api/v1/search?query=&page=0&tags=story',
   fetching: false,
   fetched: false,
   data: null,
@@ -15,6 +16,11 @@ const app = (state = getInitialState(), action) => {
         ...state, 
         fetching: true
       }; 
+    case 'FETCH_FROM': 
+      return {
+        ...state,
+        url: action.url
+      }
     case 'FETCH_DATA_ERROR':
       return {
         ...state, 
@@ -26,11 +32,13 @@ const app = (state = getInitialState(), action) => {
         ...state,
         fetching: false,
         fetched: true,
-        hits: [...state.hits, ...action.hits]
+        hits: action.hits
       };
     default: 
       return state;
   }
 };
+
+
 
 export default app;

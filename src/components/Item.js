@@ -33,11 +33,11 @@ const Item = (props) => {
               <span>{props.data.num_comments} comments</span>
             </a>
           </li>
-          <li>
+          {props.data.url !== null ? <li>
             <a href={props.data.url}>
               <span>{props.data.url.match(regEx)[1]}</span>
             </a>
-          </li>
+          </li> : null}
         </ul>
       </div>
     </div>
