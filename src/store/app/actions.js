@@ -18,7 +18,9 @@ export const fetchDataError = (error) => ({
 
 export const recieveData = (data) => ({
   type: RECIEVE_DATA,
-  hits: data.hits
+  hits: data.hits,
+  nbPages: data.nbPages,
+  page: data.page
 });
 
 // fn calls API and builds state

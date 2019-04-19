@@ -1,3 +1,7 @@
+.active {
+  background: rgb(207, 207, 207) !important;
+}
+
 .sort-by {
   background: white;
   display: flex;
@@ -16,6 +20,7 @@
 }
 
 .sort-button {
+  background: rgb(241, 241, 241);
   border: none;
   border-radius: 10px;
   color: $theme-orange;
@@ -27,4 +32,36 @@
 
 .sort-button:focus {
   outline: 0;
+}
+
+.page-number-container {
+  background: white;
+}
+.page-number-container ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 15px 0 15px;
+  padding: 8px 15px;
+}
+
+.page-number-container  li {
+  border: 1px dimgray solid;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-size: 8pt;
+  margin: 5px;
+  padding: 4px 1px;
+}
+.page-number-container  li a {
+  padding: 4px 10px;
+}
+.page-number-container  li a:focus {
+  outline: 0;
+}
+.page-active {
+  border: 1px solid $theme-orange !important;
+  color: $theme-orange !important;
 }

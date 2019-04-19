@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Item from './Item'
+import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import { fetchData, fetchFrom } from '../store/app/actions';
 
@@ -9,23 +10,36 @@ class ItemsList extends Component {
   componentDidMount() {
     this.props.dispatch(fetchData(this.props.url));
   }
+  handlePageClick = (e) => {
+    console.log(e.selected);
+    
+  }
+  // handleSortClick = (e) => {
+  //   if(e.classList.contains('active'))
+  // }
   render() {
     return (
       <div>
         <div className="sort-by">
           <span>Search stories by </span>
           <button 
-            className="sort-button" 
-            onClick={()=> (
-              this.props.dispatch(fetchData(this.props.url.replace('search_by_date', 'search')))
-            )}>
+            id="byPopularity"
+            className="sort-button active" 
+            onClick={(e)=> {
+              e.target.classList.add('active');
+              document.getElementById('byDate').classList.remove('active');
+              return this.props.dispatch(fetchData(this.props.url.replace('search_by_date', 'search')))
+            }}>
               popularity
           </button>
           <button 
+            id="byDate"
             className="sort-button" 
-            onClick={()=> (
-              this.props.dispatch(fetchData(this.props.url.replace('search', 'search_by_date')))
-            )}>
+            onClick={(e)=> {
+              e.target.classList.add('active');
+              document.getElementById('byPopularity').classList.remove('active');
+              return this.props.dispatch(fetchData(this.props.url.replace('search', 'search_by_date')))
+            }}>
               newest
           </button>
         </div>
@@ -35,7 +49,17 @@ class ItemsList extends Component {
           }) : null}
         </div>
         <div className="page-number-container">
-          <div>1</div>
+          <ReactPaginate 
+            pageCount={this.props.nbPages}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={1}
+            initialPage={this.props.page + 1}
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakLabel={'...'}
+            activeClassName={'page-active'}
+            onPageChange={this.handlePageClick}
+          />
         </div>
       </div>
     )
@@ -45,7 +69,9 @@ class ItemsList extends Component {
 const mapStateToProps = (state) => {
   return {
     url: state.app.url,
-    hits: state.app.hits
+    hits: state.app.hits,
+    page: state.app.page,
+    nbPages: state.app.nbPages
   };
 };
 export default connect(mapStateToProps)(ItemsList);

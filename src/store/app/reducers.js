@@ -4,8 +4,9 @@ const getInitialState = () => ({
   url: 'https://hn.algolia.com/api/v1/search?query=&page=0&tags=story',
   fetching: false,
   fetched: false,
-  data: null,
   hits: [],
+  page: 0,
+  nbPages: 0,
   error: null,
 });
 
@@ -32,7 +33,9 @@ const app = (state = getInitialState(), action) => {
         ...state,
         fetching: false,
         fetched: true,
-        hits: action.hits
+        hits: action.hits,
+        page: action.page,
+        nbPages: action.nbPages
       };
     default: 
       return state;
