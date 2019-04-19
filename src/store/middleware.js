@@ -9,7 +9,7 @@ middlewareList.push(thunk);
 if(!isProd) {
   middlewareList.push(createLogger());
 }
-
-const middleware = compose(applyMiddleware(...middlewareList));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = composeEnhancers(applyMiddleware(...middlewareList));
 
 export default middleware;

@@ -3,6 +3,7 @@
 const getInitialState = () => ({
   fetching: false,
   fetched: false,
+  data: null,
   hits: [],
   error: null,
 });
@@ -10,16 +11,23 @@ const getInitialState = () => ({
 const app = (state = getInitialState(), action) => {
   switch(action.type) {
     case 'FETCH_DATA_START':
-      return {...state, ...action.payload}; 
-    case 'RECEIVE_DATA':
+      return {
+        ...state, 
+        fetching: true
+      }; 
+    case 'FETCH_DATA_ERROR':
       return {
         ...state, 
         fetching: false,
-        fetched: true,
-        hits: action.payload.data.hits
+        error: action.error
       };
-    case 'FETCH_DATA_ERROR':
-      return {...state, fetching: false, error: action.payload}
+    case 'RECIEVE_DATA':
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        hits: [...state.hits, ...action.hits]
+      };
     default: 
       return state;
   }

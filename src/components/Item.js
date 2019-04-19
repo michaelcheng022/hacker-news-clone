@@ -1,5 +1,5 @@
 import React from 'react'
-import moment, {fromNow} from 'moment';
+import moment from 'moment';
 
 const regEx = /:\/\/(.[^/]+)/; //regular expression for parsing urls
 const getDate = (createdAt) => {

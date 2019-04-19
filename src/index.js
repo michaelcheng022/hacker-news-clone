@@ -6,10 +6,8 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 const renderApp = () => {
-  const initialState = {};
-  const store = configureStore(initialState);
+  const store = configureStore();
 
-  store.dispatch({ type: '@hnClone/@@INIT' });
 
   ReactDOM.render(
     <Provider store={store}>
