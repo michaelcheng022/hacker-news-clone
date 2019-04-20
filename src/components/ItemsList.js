@@ -2,17 +2,19 @@ import React, { Component } from 'react'
 import Item from './Item'
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
-import { fetchData, fetchFrom } from '../store/app/actions';
+import { fetchData } from '../store/app/actions';
 
-const url = 'https://hn.algolia.com/api/v1/search?query=&page=0&tags=story'
+//const url = `https://hn.algolia.com/api/v1/search${searchBy}?query=${query}&page=0&tags=story`
 
 class ItemsList extends Component {
   componentDidMount() {
     this.props.dispatch(fetchData(this.props.url));
+    console.log(this.props.url);
   }
   handlePageClick = (e) => {
     console.log(e.selected);
-    
+    const url = this.props.url.replace(`page=${this.props.page}`, `page=${e.selected}`);
+    this.props.dispatch(fetchData(url));
   }
   // handleSortClick = (e) => {
   //   if(e.classList.contains('active'))
@@ -53,7 +55,7 @@ class ItemsList extends Component {
             pageCount={this.props.nbPages}
             pageRangeDisplayed={5}
             marginPagesDisplayed={1}
-            initialPage={this.props.page + 1}
+            initialPage={this.props.page}
             previousLabel={'<'}
             nextLabel={'>'}
             breakLabel={'...'}

@@ -1,7 +1,8 @@
 import React from 'react'
 import moment from 'moment';
 
-const regEx = /:\/\/(.[^/]+)/; //regular expression for parsing urls
+const regEx = /:\/\/(.[^\/]+)/; //regular expression for parsing urls
+//const regEx = /(http(s)?:\/\/)|(\/.*){1}/;
 const getDate = (createdAt) => {
   let date = new Date(createdAt);
   return moment(date).fromNow();
@@ -33,9 +34,9 @@ const Item = (props) => {
               <span>{props.data.num_comments} comments</span>
             </a>
           </li>
-          {props.data.url !== null ? <li>
+          {typeof props.data.url == 'string' ? <li>
             <a href={props.data.url}>
-              <span>{props.data.url.match(regEx)[1]}</span>
+              <span>{props.data.url}</span>
             </a>
           </li> : null}
         </ul>

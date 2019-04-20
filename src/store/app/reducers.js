@@ -1,13 +1,20 @@
 
 
 const getInitialState = () => ({
-  url: 'https://hn.algolia.com/api/v1/search?query=&page=0&tags=story',
+  url: `https://hn.algolia.com/api/v1/search?query=&page=0&tags=story`,
+  // url: {
+  //   base: 'https://hn.algolia.com/api/v1/search?&tags=story',
+  //   query: 'query=',
+  //   page: '&page=0',
+
+  // }
   fetching: false,
   fetched: false,
+  error: null,
   hits: [],
   page: 0,
   nbPages: 0,
-  error: null,
+  query: ''
 });
 
 const app = (state = getInitialState(), action) => {
@@ -35,7 +42,8 @@ const app = (state = getInitialState(), action) => {
         fetched: true,
         hits: action.hits,
         page: action.page,
-        nbPages: action.nbPages
+        nbPages: action.nbPages,
+        query: action.query
       };
     default: 
       return state;

@@ -20,7 +20,8 @@ export const recieveData = (data) => ({
   type: RECIEVE_DATA,
   hits: data.hits,
   nbPages: data.nbPages,
-  page: data.page
+  page: data.page,
+  query: data.query
 });
 
 // fn calls API and builds state

@@ -65,3 +65,7 @@
   border: 1px solid $theme-orange !important;
   color: $theme-orange !important;
 }
+
+.page-number-container li.disabled {
+  display: none;
+}
