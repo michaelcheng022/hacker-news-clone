@@ -2,13 +2,34 @@ import React, { Component } from 'react'
 import {connect } from 'react-redux';
 import { fetchData } from '../store/app/actions';
 
+
+const debounce = (fn, time) => {
+  let timeout;
+
+  return function(...args) {
+    console.log(args);
+    const functionCall = () => fn.apply(this, args);
+    
+    clearTimeout(timeout);
+    timeout = setTimeout(functionCall, time);
+  }
+}
+
+
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.delayedCallback = debounce((e) => {
+      const query = e.target.value;
+      let url = this.props.url.replace(`query=${this.props.query}`, `query=${query}`);
+      console.log(url);
+      // url = encodeURIComponent(url.trim())
+      this.props.dispatch(fetchData(url));
+    }, 1000)
+  }
   handleInputQuery = (e) => {
-    const query = e.target.value;
-    let url = this.props.url.replace(`query=${this.props.query}`, `query=${query}`);
-    console.log(url);
-    // url = encodeURIComponent(url.trim())
-    this.props.dispatch(fetchData(url));
+    e.persist();
+    this.delayedCallback(e);
   }
   render() {
     return (
