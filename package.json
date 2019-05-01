@@ -8,12 +8,14 @@
     "react": "^16.8.6",
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.8.6",
+    "react-highlighter": "^0.4.3",
     "react-paginate": "^6.3.0",
     "react-redux": "^7.0.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

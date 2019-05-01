@@ -47,7 +47,13 @@ class ItemsList extends Component {
         </div>
         <div>
           {this.props.hits !== undefined ? this.props.hits.map((hit) => {
-            return <Item key={hit.objectID} data={hit} />;
+            return ( 
+              <Item 
+                key={hit.objectID} 
+                data={hit} 
+                query={this.props.query}
+              />
+            );
           }) : null}
         </div>
         <div className="page-number-container">
@@ -73,7 +79,8 @@ const mapStateToProps = (state) => {
     url: state.app.url,
     hits: state.app.hits,
     page: state.app.page,
-    nbPages: state.app.nbPages
+    nbPages: state.app.nbPages,
+    query: state.app.query
   };
 };
 export default connect(mapStateToProps)(ItemsList);

@@ -15,15 +15,13 @@ const debounce = (fn, time) => {
   }
 }
 
-
 class Header extends Component {
   constructor(props) {
     super(props);
+    
     this.delayedCallback = debounce((e) => {
       const query = e.target.value;
       let url = this.props.url.replace(`query=${this.props.query}`, `query=${query}`);
-      console.log(url);
-      // url = encodeURIComponent(url.trim())
       this.props.dispatch(fetchData(url));
     }, 1000)
   }
