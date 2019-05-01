@@ -2,7 +2,7 @@
 
 A React & redux powered implementation of [Hacker News](https://news.ycombinator.com/) using its [Algolia API](https://hn.algolia.com/api).
 
-![Screenshot](./hackernews-clone-1.png)
+![Screenshot](./hn-screenshot-1.png)
 
 ## Features
 * Live search with syntax query highlighted
