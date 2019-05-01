@@ -12,7 +12,8 @@ A React & redux powered implementation of [Hacker News](https://news.ycombinator
 * External links to orginal comments, stories, posts and url
 
 ## To Be Implemented
-* React Router that allows you to configure settings
+* React Router that includes a configure settings page
+* Error Handling for unfound search result
 * Backend to allow you to save stories you like and store to local cache
 * Possibly incorporate comment viewer section
 
