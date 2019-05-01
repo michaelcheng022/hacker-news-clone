@@ -2,6 +2,8 @@
 
 A React & redux powered implementation of [Hacker News](https://news.ycombinator.com/) using its [Algolia API](https://hn.algolia.com/api).
 
+![Screenshot](/hacker-news-clone1.png)
+
 ## Features
 * Live search with syntax query highlighted
 * Fetches news realtime from [Algolia API](https://hn.algolia.com/api)
