@@ -19,7 +19,6 @@ A React & redux powered implementation of [Hacker News](https://news.ycombinator
 
 ## Building
 
-* `npm start`
 * `npm start` - start development server
 * `npm run build` - build into the `public/` directory
 
