@@ -4,6 +4,9 @@ A React & redux powered implementation of [Hacker News](https://news.ycombinator
 
 ## Features
 
+
+## Building
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
