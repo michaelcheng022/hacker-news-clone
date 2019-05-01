@@ -11,6 +11,11 @@ A React & redux powered implementation of [Hacker News](https://news.ycombinator
 * Uses pagination to parse data for optimized speed
 * External links to orginal comments, stories, posts and url
 
+## To Be Implemented
+* React Router that allows you to configure settings
+* Backend to allow you to save stories you like and store to local cache
+* Possibly incorporate comment viewer section
+
 ## Building
 
 * `npm start`
