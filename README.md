@@ -1,4 +1,4 @@
-## [hacker-news-clone](https://hn-algolia-clone.herokuapp.com/)
+## [Hacker News Clone](https://hn-algolia-clone.herokuapp.com/)
 
 A React & redux powered implementation of [Hacker News](https://news.ycombinator.com/) using its [Algolia API](https://hn.algolia.com/api).
 
